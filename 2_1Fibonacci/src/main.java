@@ -1,5 +1,12 @@
-import java.util.Scanner;
+/*
+ * Author: Connor Aksama
+ * Project Name: 2_1Fibonacci
+ * File Name: main.java
+ * Pseudocode: Use recursive function, pass new sum, and prev. num
+ * Maintenance Log: 9/11 Done
+ */
 
+import java.util.Scanner;
 
 public class main {
 	

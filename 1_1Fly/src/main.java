@@ -1,4 +1,11 @@
-
+/*
+ * Author: Connor Aksama
+ * Project Name: 1_1Fly
+ * File Name: main.java
+ * Purpose: print.
+ * Pseudocode: Use recursion and sequentially incremented variable to print out switched phrases
+ * Maintenance Log: 9/11 Done 
+ */
 public class main {
 
 	public static void main(String[] args) {
