@@ -1,9 +1,9 @@
 /*
  * Author: Connor Aksama
- * Project Name: 2_2Squares
+ * Project Name: 2_3Polynomial
  * File Name: main.java
  * Purpose: do Math
- * Pseudocode: Iterate output number by further iterated "first difference"
+ * Pseudocode: Use Quadratic fn
  * Maintenance Log: 9/11 Done
  */
 import java.util.Scanner;
