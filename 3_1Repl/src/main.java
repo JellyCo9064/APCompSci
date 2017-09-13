@@ -19,6 +19,8 @@ public class main {
 		System.out.println("Enter number of repetitions: ");
 		int reps = console.nextInt();
 		System.out.println(repl(template, reps));
+		
+		console.close();
 	}
 	public static String repl(String template, int reps)
 	{
