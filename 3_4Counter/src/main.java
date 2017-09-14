@@ -18,11 +18,11 @@ public class main
 			
 			Scanner file = new Scanner(new File(fileName));
 			
-			List<String> fileLines = new ArrayList<String>();
+			ArrayList<String> fileLines = new ArrayList<String>();
 			
 			while(file.hasNextLine())
 			{
-				fileLines.Add(file.nextLine());
+				fileLines.add(file.nextLine());
 			}
 			
 				
