@@ -20,6 +20,7 @@ public class main {
 		Random r = new Random();
 		char[] selectedWord = words[r.nextInt(8)];
 		char[] outputGuessing = new char[selectedWord.length];
+		int guesses = 0;
 		for (int i = 0; i < outputGuessing.length; i++)
 		{
 			outputGuessing[i] = '_';
@@ -35,8 +36,9 @@ public class main {
 			System.out.println("Enter a letter guess: ");
 			String guess = console.next();
 			guess.toLowerCase();
-			if (guess.length() == 1)
+			if (guess.length() == 1 && guess.charAt(0) >= 65 && guess.charAt(0) <= 122)
 			{
+				guesses++;
 				char guessChar = guess.charAt(0);
 				boolean retyped = false;
 				for(char c : lettersGuessed)
@@ -60,17 +62,44 @@ public class main {
 						}
 					}
 				}
+				boolean notWin = true;
+				for(char c : outputGuessing)
+				{
+					if (c == '_')
+					{
+						notWin = false;
+						break;
+					}
+				}
+				wordFound = notWin;
+				
+				if (!wordFound)
+				{
+					System.out.print(outputGuessing);
+					System.out.print("\nLetters Guessed: {" + lettersGuessed.get(0));
+					for(int i = 1; i <= lettersGuessed.size() - 1; i++)
+					{
+						System.out.print(", ");
+						System.out.print(lettersGuessed.get(i));
+					}
+					System.out.print("}\n");
+				}
 			}
-			System.out.println("try: " + outputGuessing.toString());
-			System.out.print("\nLetters Guessed: {" + lettersGuessed.get(0));
-			for(int i = 1; i < lettersGuessed.size() - 1; i++)
+			else
 			{
-				System.out.print(", ");
-				System.out.print(lettersGuessed.get(i));
+				System.out.println("Not Valid");
 			}
-			System.out.print("}\n");
+			
 		}
+		System.out.println("\nWin");
 		
+	}
+	
+	public static String hanger(int guesses)
+	{
+		
+		
+		return "MOO";
 	}
 
 }
