@@ -1,10 +1,10 @@
 /*
  * Author: Connor Aksama
- * Project Name: 4_1Mastermind
+ * Project Name: 4_2Hangman
  * File Name: main.java
  * Purpose: Deal with arrays and checking
- * Pseudocode: get word from 2d charray (tm) 
- * Maintenance Log: 9/15 Began base 9/16 finished checking
+ * Pseudocode: get word from 2d charray (tm) Get in char from string. Check through guessed letters and selected word. Modify output charray.
+ * Maintenance Log: 9/22 done
  */
 import java.util.*;
 public class main {
