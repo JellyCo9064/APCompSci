@@ -3,7 +3,7 @@
  * Project Name: 4_1Mastermind
  * File Name: main.java
  * Purpose: Deal with arrays and checking
- * Pseudocode: Init random int array, get in guess as charray (tm), check for MAX correct, check again for less correct.
+ * Pseudocode: get word from 2d charray (tm) 
  * Maintenance Log: 9/15 Began base 9/16 finished checking
  */
 import java.util.*;
@@ -28,7 +28,6 @@ public class main {
 		
 		boolean wordFound = false;
 		
-		System.out.println(selectedWord);
 		System.out.println(outputGuessing);
 		
 		while (!wordFound)
