@@ -98,7 +98,7 @@ public class main {
 	public static String hanger(int guesses)
 	{
 		
-		
+		//Just Seeing if this works.
 		return "MOO";
 	}
 
