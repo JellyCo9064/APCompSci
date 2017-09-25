@@ -4,7 +4,7 @@
  * File Name: main.java
  * Purpose: Deal with arrays and checking
  * Pseudocode: 
- * Maintenance Log: 9/22 printing out board
+ * Maintenance Log: 9/22 printing out board 9/23 Input and checking
  */
 import java.util.*;
 public class main {
