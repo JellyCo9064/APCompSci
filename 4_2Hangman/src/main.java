@@ -18,8 +18,8 @@ public class main {
 					"bungler".toCharArray(), "croquet".toCharArray(), "crypt".toCharArray(),
 					"dwarves".toCharArray(), "fervid".toCharArray(), "fishhook".toCharArray()};
 		Random r = new Random();
-		char[] selectedWord = words[r.nextInt(8)];
-		char[] outputGuessing = new char[selectedWord.length];
+		char[] selectedWord = words[r.nextInt(8)]; //Choose 0 - 7
+		char[] outputGuessing = new char[selectedWord.length]; //for outputting correct letters
 		int guesses = 0;
 		for (int i = 0; i < outputGuessing.length; i++)
 		{
@@ -40,7 +40,7 @@ public class main {
 				guesses++;
 				char guessChar = guess.charAt(0);
 				boolean retyped = false;
-				for(char c : lettersGuessed)
+				for(char c : lettersGuessed) //get and check first char of string
 				{
 					if (c == guessChar)
 					{
@@ -53,7 +53,7 @@ public class main {
 				{
 					lettersGuessed.add(guessChar);
 					
-					for(int i = 0; i < selectedWord.length; i++)
+					for(int i = 0; i < selectedWord.length; i++)//print correctly guesed letters
 					{
 						if (selectedWord[i] == guessChar)
 						{
@@ -72,7 +72,7 @@ public class main {
 				}
 				wordFound = notWin;
 				
-				if (!wordFound)
+				if (!wordFound)//output guessed letters
 				{
 					System.out.print(outputGuessing);
 					System.out.print("\nLetters Guessed: {" + lettersGuessed.get(0));
@@ -92,13 +92,6 @@ public class main {
 		}
 		System.out.println("\nWin");
 		
-	}
-	
-	public static String hanger(int guesses)
-	{
-		
-		
-		return "MOO";
 	}
 
 }
