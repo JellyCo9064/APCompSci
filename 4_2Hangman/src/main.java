@@ -91,7 +91,7 @@ public class main {
 			
 		}
 		System.out.println("\nWin");
-		
+		console.close();
 	}
 
 }
