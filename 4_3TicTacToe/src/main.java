@@ -3,8 +3,8 @@
  * Project Name: 4_3TicTacToe
  * File Name: main.java
  * Purpose: Deal with arrays and checking
- * Pseudocode: 
- * Maintenance Log: 9/22 printing out board 9/23 Input and checking
+ * Pseudocode: Get input, add 2 2D array, check array by row, column, diagz.
+ * Maintenance Log: 9/22 printing out board 9/25 Input and checking 9/27 Done
  */
 import java.util.*;
 public class main {
@@ -18,10 +18,10 @@ public class main {
 		
 		boolean turn = true;//True = x turn False = o turn
 		boolean done = false;
+		printBoard(board);
 label:
 		while (!done)
 		{
-			printBoard(board);
 			if (turn)
 			{
 				System.out.print("x ");
@@ -40,14 +40,24 @@ label:
 			}
 			int horizontalPos = move.charAt(1) - 97; //0 Left most, 2 right most
 			int verticalPos = move.charAt(0) - 48; //0 top most, 2 bottom most
-			System.out.println(horizontalPos + " " + verticalPos);
-			board[verticalPos][horizontalPos] = (turn) ? 1 : 2;
-			
-			
-			
-			
+
+			if (board[verticalPos][horizontalPos] == 0)
+			{
+				board[verticalPos][horizontalPos] = (turn) ? 1 : 2;
+			}
+			else
+			{
+				System.out.println("Invalid.");
+				continue label;
+			}
+			printBoard(board);
+				
 			turn = !turn;
 			done = checkIfWin(board);
+			if (done)
+			{
+				System.out.println("Win");
+			}
 		}
 		
 	}
@@ -74,7 +84,7 @@ label:
 						{
 							System.out.print("x  ");
 						}
-						else if (board[i][j] == 2)
+						else if (board[k][j] == 2)
 						{
 							System.out.print("o  ");
 						}
@@ -105,11 +115,12 @@ label:
 		}
 	}
 	public static boolean checkIfWin(int[][]board)
-	{
+	{	
 		for(int i = 0; i < 3; i++)//check Rows
 		{
 			boolean win = true;
 			int activeNum = board[i][0];
+			win = true;
 			for (int j = 0; j < 3; j++)
 			{
 				if (board[i][j] == 0 || board[i][j] != activeNum)
@@ -117,12 +128,13 @@ label:
 					win = false;
 					break;
 				}
-			}
-			if (win)
-			{
-				return true;
+				if (win && j == 2)
+				{
+					return true;
+				}
 			}
 		}
+
 		for(int i = 0; i < 3; i++)//check columns
 		{
 			boolean win = true;
@@ -134,27 +146,41 @@ label:
 					win = false;
 					break;
 				}
-			}
-			if (win)
-			{
-				return true;
+				if (win && j == 2)
+				{
+					return true;
+				}
 			}
 		}
+		
+		boolean winner = true;
 		for(int i = 0; i < 3; i++)//check y = -x line
 		{
-			boolean win = true;
 			int activeNum = board[0][0];
 			if (board[i][i] == 0 || board[i][i] != activeNum)
 			{
-				win = false;
-			}
-			if (win)
-			{
-				return true;
+				winner = false;
 			}
 		}
+		if (winner)
+		{
+			return true;
+		}
+		winner = true;
+		for(int i = 2; i >= 0; i--)//check y = -x line
+		{
+			int activeNum = board[2][0];
+			if (board[i][2 - i] == 0 || board[i][2 - i] != activeNum)
+			{
+				winner = false;
+			}
+		}	
+		if (winner)
+		{
+			return true;
+		}
 		
-		
+		return false;
 		
 	}
 }
