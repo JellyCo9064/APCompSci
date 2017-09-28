@@ -20,7 +20,7 @@ public class main {
 		Random r = new Random();
 		char[] selectedWord = words[r.nextInt(8)]; //Choose 0 - 7
 		char[] outputGuessing = new char[selectedWord.length]; //for outputting correct letters
-		int guesses = 0;
+		int incorrectGuesses = 0;
 		for (int i = 0; i < outputGuessing.length; i++)
 		{
 			outputGuessing[i] = '_';
@@ -37,7 +37,6 @@ public class main {
 			guess.toLowerCase();
 			if (guess.length() == 1 && guess.charAt(0) >= 65 && guess.charAt(0) <= 122)
 			{
-				guesses++;
 				char guessChar = guess.charAt(0);
 				boolean retyped = false;
 				for(char c : lettersGuessed) //get and check first char of string
@@ -53,16 +52,22 @@ public class main {
 				{
 					lettersGuessed.add(guessChar);
 					
-					for(int i = 0; i < selectedWord.length; i++)//print correctly guesed letters
+					boolean correct = false;
+					for(int i = 0; i < selectedWord.length; i++)//print correctly guessed letters
 					{
 						if (selectedWord[i] == guessChar)
 						{
+							correct = true;
 							outputGuessing[i] = guessChar;
 						}
 					}
+					if (!correct)
+					{
+						incorrectGuesses++;
+					}
 				}
 				boolean notWin = true;
-				for(char c : outputGuessing)
+				for(char c : outputGuessing)//check for not win
 				{
 					if (c == '_')
 					{
@@ -82,15 +87,24 @@ public class main {
 						System.out.print(lettersGuessed.get(i));
 					}
 					System.out.print("}\n");
+					System.out.println("Incorrect Guesses: " + incorrectGuesses);
 				}
 			}
 			else
 			{
 				System.out.println("Not Valid");
 			}
+			if (incorrectGuesses >= 6)
+			{
+				System.out.println("lose");
+				break;
+			}
 			
 		}
-		System.out.println("\nWin");
-		console.close();
+		if (wordFound)
+		{
+			System.out.println("\nWin");
+			console.close();
+		}
 	}
 }

@@ -25,15 +25,28 @@ public class main {
 		{
 			password[i] = (int)r.nextInt(9);
 		}
-		
+label:			
 		while (correctPlace != 4)
 		{
+		
 			correctPlace = 0;
 			appearance = 0;
 			System.out.println("Enter your guess (no spaces)");
 			char[] guess = console.nextLine().toCharArray();
 			boolean[] tested = {false, false, false, false};//used to test password activity. Set true if index has match in guess.
-		
+			if (guess.length < 4 || guess.length > 4)
+			{
+				System.out.println("Invalid");
+				continue label;
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				if (guess[i] < 48 || guess[i] > 57)
+				{
+					System.out.println("Invalid");
+					continue label;
+				}
+			}
 			for (int i = 0; i < 4; i++)
 			{
 				if (guess[i] - 48 == password[i])
