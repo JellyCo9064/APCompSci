@@ -30,3 +30,40 @@ public class main {
 		console.close();
 	}
 }
+/*
+ //Project Name: 5_1Shapparent
+//File Name: Circle.java
+public class Circle {
+	private double radius;
+	
+	public Circle() {radius = 1;};
+	public Circle(double r) {radius = r;};//constructors
+	
+	public void setRadius(double r) {radius = r;};
+	
+	public double area() {return Math.PI * radius * radius;};//methods
+	public double circumfrence() {return Math.PI * 2 * radius;};
+}
+//Project Name: 5_1Shapparent
+//File Name: Rectangle.java
+public class Rectangle {
+	private double length;
+	private double width;
+	
+	public Rectangle(){length = 1; width = 1;};
+	public Rectangle(double l, double w){length = l; width = w;};//constructors
+	
+	public double area() {return length * width;};//methods
+	public double perimeter() {return 2 * length + 2 * length;};
+	
+}
+//Project Name: 5_1Shapparent
+//File Name: Square.java
+public class Square extends Rectangle{//inherit from rectangle class
+	
+	public Square() {super();};//default constructor "inherited" from rectangle
+	public Square(double s) {super(s, s);};//utilize constructor from rectangle class to initialize variables to same value
+	
+}
+
+ */
