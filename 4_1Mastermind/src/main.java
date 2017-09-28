@@ -16,15 +16,17 @@ public class main {
 		Random r = new Random();
 		Scanner console = new Scanner(System.in);
 		
-		int[] password = new int[4];
+		int[] password = {2, 2, 0, 5};
 		
 		int correctPlace = 0;
 		int appearance = 0;
 		
-		for (int i = 0; i < 4; i++)
+		/*for (int i = 0; i < 4; i++)
 		{
 			password[i] = (int)r.nextInt(9);
-		}
+			System.out.print(password[i]);
+		}*/
+		System.out.print("\n");
 label:			
 		while (correctPlace != 4)
 		{
@@ -33,13 +35,13 @@ label:
 			appearance = 0;
 			System.out.println("Enter your guess (no spaces)");
 			char[] guess = console.nextLine().toCharArray();
-			boolean[] tested = {false, false, false, false};//used to test password activity. Set true if index has match in guess.
+			boolean[] tested = {false, false, false, false};//if true, password index already matched
 			if (guess.length < 4 || guess.length > 4)
 			{
 				System.out.println("Invalid");
 				continue label;
 			}
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < 4; i++)//Check for validity
 			{
 				if (guess[i] < 48 || guess[i] > 57)
 				{
@@ -47,7 +49,7 @@ label:
 					continue label;
 				}
 			}
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < 4; i++)//Check only for correct place
 			{
 				if (guess[i] - 48 == password[i])
 				{
@@ -55,11 +57,16 @@ label:
 					correctPlace++;
 				}
 			}
-			for (int i = 0; i < 4; i++)
+			//Take each password number, and check against each guess number
+			//
+			for (int i = 0; i < 4; i++)//i == input index being checked
 			{
-				for (int j = 0; j < 4; j++)
-				{	
-					if (guess[i] - 48 == password[j] && !tested[j])
+				for (int j = 0; j < 4; j++)//j == password index being checked
+				{	if (tested[i])
+					{
+						break;
+					}
+					if (guess[j] - 48 == password[i] && !tested[j])
 					{
 						tested[j] = true;
 						appearance++;
