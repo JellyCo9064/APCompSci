@@ -48,6 +48,11 @@ public class main {
 				output += "L";
 				input -= 50;
 			}
+			if (input >= 40)
+			{
+				output += "XL";
+				input -= 40;
+			}
 			while (input >= 10) {
 				output += "X";
 				input -= 10;
