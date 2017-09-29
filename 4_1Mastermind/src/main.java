@@ -58,11 +58,10 @@ label:
 				}
 			}
 			//Take each password number, and check against each guess number
-			//
 			for (int i = 0; i < 4; i++)//i == input index being checked
 			{
 				for (int j = 0; j < 4; j++)//j == password index being checked
-				{	if (tested[i])
+				{	if (tested[i])//if password index already matched
 					{
 						break;
 					}
