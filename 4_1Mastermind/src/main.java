@@ -16,16 +16,16 @@ public class main {
 		Random r = new Random();
 		Scanner console = new Scanner(System.in);
 		
-		int[] password = {2, 2, 0, 5};
+		int[] password = new int[4];
 		
 		int correctPlace = 0;
 		int appearance = 0;
 		
-		/*for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			password[i] = (int)r.nextInt(9);
 			System.out.print(password[i]);
-		}*/
+		}
 		System.out.print("\n");
 label:			
 		while (correctPlace != 4)
