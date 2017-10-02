@@ -4,7 +4,7 @@
  * File Name: main.java
  * Purpose: Deal with arrays and checking
  * Pseudocode: Init random int array, get in guess as charray (tm), check for MAX correct, check again for less correct.
- * Maintenance Log: 9/15 Began base 9/16 finished checking
+ * Maintenance Log: 9/15 Began base 9/16 finished checking 10/2 bbboi
  */
 import java.util.Random;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class main {
 		Random r = new Random();
 		Scanner console = new Scanner(System.in);
 		
-		int[] password = {2, 2, 0, 5};
+		int[] password = {6, 6, 1, 4};
 		
 		int correctPlace = 0;
 		int appearance = 0;
@@ -35,7 +35,8 @@ label:
 			appearance = 0;
 			System.out.println("Enter your guess (no spaces)");
 			char[] guess = console.nextLine().toCharArray();
-			boolean[] tested = {false, false, false, false};//if true, password index already matched
+			boolean[] guessTested = {false, false, false, false};
+			boolean[] passTested = {false, false, false, false};//if true, password index already matched
 			if (guess.length < 4 || guess.length > 4)
 			{
 				System.out.println("Invalid");
@@ -53,7 +54,8 @@ label:
 			{
 				if (guess[i] - 48 == password[i])
 				{
-					tested[i] = true;
+					guessTested[i] = true;
+					passTested[i] = true;
 					correctPlace++;
 				}
 			}
@@ -61,13 +63,15 @@ label:
 			for (int i = 0; i < 4; i++)//i == input index being checked
 			{
 				for (int j = 0; j < 4; j++)//j == password index being checked
-				{	if (tested[i])//if password index already matched
+				{	/*if (tested[j])//if password index already matched
 					{
 						break;
-					}
-					if (guess[j] - 48 == password[i] && !tested[j])
+					}*/
+					if (guess[j] - 48 == password[i] && !passTested[j] && !guessTested[i])
 					{
-						tested[j] = true;
+
+						passTested[j] = true;
+						guessTested[i] = true;
 						appearance++;
 						break;
 					}
