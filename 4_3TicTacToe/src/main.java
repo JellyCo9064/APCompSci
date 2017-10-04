@@ -54,6 +54,22 @@ label:
 				
 			turn = !turn;
 			done = checkIfWin(board);
+			boolean tie = true;
+			for (int i = 0; i < 3; i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					if (board[i][j] == 0)
+					{
+						tie = false;
+						break;
+					}
+				}
+			}
+			if (tie && !done)
+			{
+				System.out.println("Tie");
+			}
 			if (done)
 			{
 				System.out.println("Win");
