@@ -36,6 +36,8 @@ public class main {
 		System.out.println("Enter Triangular Pyramid Height: ");
 		RightRegularTriangularPyramid tetra = new RightRegularTriangularPyramid(tetraSide, console.nextDouble());		
 		
+		//HELLO :)
+		
 		System.out.println("\tVolume: " + tetra.getVolume());
 		System.out.println("\tSurface Area: " + tetra.getSurfaceArea());
 		
