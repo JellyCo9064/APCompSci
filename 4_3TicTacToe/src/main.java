@@ -138,7 +138,7 @@ label:
 		for(int i = 0; i < 3; i++)//check columns
 		{
 			boolean win = true;
-			int activeNum = board[i][0];
+			int activeNum = board[0][i];
 			for (int j = 0; j < 3; j++)
 			{
 				if (board[j][i] == 0 || board[j][i] != activeNum)
