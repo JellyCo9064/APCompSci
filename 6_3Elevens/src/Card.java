@@ -1,3 +1,11 @@
+/*
+ * Author: Connor Aksama
+ * Project Name: 6_3Elevens
+ * File Name: Card.java
+ * Purpose: Do a lab
+ * Pseudocode: Declare variables, access, print out. Make objects, print.
+ * Maintenance Log: 10/4 Activity One Done.
+ */
 /**
  * Card.java
  *
