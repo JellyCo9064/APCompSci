@@ -15,3 +15,4 @@ public class CardTester {
 		System.out.println(card1.toString() + "\n" + card2.toString() + "\n" + card3.toString());
 	}
 }
+
