@@ -7,7 +7,7 @@ public class ElevensSimulation {
 	/**
 	 * The number of games of Elevens to play.
 	 */
-	private static final int GAMES_TO_PLAY = 1000;
+	private static final int GAMES_TO_PLAY = 1000000;
 
 	/**
 	 * Flag used to control debugging print statements.
@@ -39,6 +39,7 @@ public class ElevensSimulation {
 
 		double percentWon = (int)(1000.0 * wins / GAMES_TO_PLAY + 0.5) / 10.0;
 		System.out.println("Games won:    " + wins);
+		System.out.println("Games lost:   " + (GAMES_TO_PLAY - wins));
 		System.out.println("Games played: " + GAMES_TO_PLAY);
 		System.out.println("Percent won:  " + percentWon + "%");
 	}

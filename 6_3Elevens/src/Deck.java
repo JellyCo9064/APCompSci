@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.ArrayList;
-import java.util.*;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -12,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards = new ArrayList<Card>();
+	private List<Card> cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,11 +30,10 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		for(String suit : suits)
-		{
-			for(int i = 0; i < ranks.length; i++)
-			{
-				cards.add(new Card(ranks[i], suit, values[i]));
+		cards = new ArrayList<Card>();
+		for (int j = 0; j < ranks.length; j++) {
+			for (String suitString : suits) {
+				cards.add(new Card(ranks[j], suitString, values[j]));
 			}
 		}
 		size = cards.size();
@@ -48,7 +46,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		return size <= 0;
+		return size == 0;
 	}
 
 	/**
@@ -56,7 +54,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		return cards.size();
+		return size;
 	}
 
 	/**
@@ -64,21 +62,13 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		ArrayList<Card> shuffled = new ArrayList<Card>();
-		for(int i = cards.size() - 1; i >= 1; i--)
-		{
-			Random r = new Random();
-			int rand = r.nextInt(i);
-			Card temp = cards.get(i);
-			Card temp1 = cards.get(rand);
-			
-			
-			
-			cards.remove(i);
-			cards.add(i, temp1);
-			
-			cards.remove(rand);
-			cards.add(rand, temp);
+		for (int k = cards.size() - 1; k > 0; k--) {
+			int howMany = k + 1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			Card temp = cards.get(k);
+			cards.set(k, cards.get(randPos));
+			cards.set(randPos, temp);
 		}
 		size = cards.size();
 	}
@@ -89,12 +79,12 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		size--;
-		System.out.println(size);
-		if(isEmpty()){
+		if (isEmpty()) {
 			return null;
 		}
-		return cards.get(size);
+		size--;
+		Card c = cards.get(size);
+		return c;
 	}
 
 	/**
