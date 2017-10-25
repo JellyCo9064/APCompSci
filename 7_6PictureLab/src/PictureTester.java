@@ -120,6 +120,80 @@ public class PictureTester
 	  }
 	  water.explore();
   }
+  public static void mirrorVerticalRightToLeft()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  Pixel left = null;
+	  Pixel right = null;
+	  int width = pixels[0].length;
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < width / 2; col++)
+		  {
+			  left = pixels[row][col];
+			  right = pixels[row][width - 1 - col];
+			  left.setColor(right.getColor());
+			  
+		  }
+	  }
+	  beach.explore();
+  }
+  public static void mirrorHorizontal()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  Pixel top = null;
+	  Pixel bottom = null;
+	  int height = pixels.length;
+	  for(int row = 0; row < height / 2; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  top = pixels[row][col];
+			  bottom = pixels[height - 1 - row][col];
+			  bottom.setColor(top.getColor());
+		  }
+	  }
+	  beach.explore();
+  }
+  public static void mirrorHorizontalBotToTop()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  Pixel top = null;
+	  Pixel bot = null;
+	  int height = pixels.length;
+	  for(int row = 0; row < height / 2; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  top = pixels[row][col];
+			  bot = pixels[height - 1 - row][col];
+			  top.setColor(bot.getColor());
+		  }
+	  }
+	  beach.explore();
+  }
+  public static void mirrorDiagonal()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  Pixel source = null;
+	  Pixel dest = null;
+	  int lesser = Math.min(pixels[0].length, pixels.length);
+	  for(int row = 0; row < lesser; row++)
+	  {
+		  for(int col = row + 1; col < lesser; col++)
+		  {
+			  dest = pixels[row][col];
+			  source = pixels[col][row];
+			  dest.setColor(source.getColor());
+		  }
+	  }
+	  beach.explore();
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -128,12 +202,16 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  fixUnderwater();
+	  mirrorDiagonal();
+	  //mirrorHorizontalBotToTop();
+	  //mirrorHorizontal();
+	  //mirrorVerticalRightToLeft();
+	  //fixUnderwater();
 	  //grayscale();
 	  //negate();
 	  //keepOnlyBlue();
     //testZeroBlue();
-    //testKeepOnlyBlue();
+//testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
