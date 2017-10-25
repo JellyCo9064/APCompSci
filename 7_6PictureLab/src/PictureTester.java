@@ -51,6 +51,76 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void keepOnlyBlue()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel obj : row)
+		  {
+			  obj.setRed(0);
+			  obj.setGreen(0);
+		  }
+	  }
+	  beach.explore();
+  }
+  
+  public static void negate()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel obj : row)
+		  {
+			  obj.setRed(255 - obj.getRed());
+			  obj.setGreen(255 - obj.getGreen());
+			  obj.setBlue(255 - obj.getBlue());
+		  }
+	  }
+	  beach.explore();
+  }
+  public static void grayscale()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  Pixel[][] pixels = beach.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel obj : row)
+		  {
+			  int avg = (obj.getRed() + obj.getGreen() + obj.getBlue()) / 3;
+			  obj.setRed(avg);
+			  obj.setGreen(avg);
+			  obj.setBlue(avg);
+		  }
+	  }
+	  beach.explore();
+  }
+  
+  public static void fixUnderwater()
+  {
+	  Picture water = new Picture("water.jpg");
+	  Pixel[][] pixels = water.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel obj : row)
+		  {
+			  int newBlue = obj.getBlue();
+			  if (newBlue + 35 < 255)
+			  {
+				  newBlue += 35;
+			  }
+			  else
+			  {
+				  newBlue = 255;
+			  }
+			  obj.setBlue(newBlue);
+		  }
+	  }
+	  water.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -58,7 +128,11 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+	  fixUnderwater();
+	  //grayscale();
+	  //negate();
+	  //keepOnlyBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
