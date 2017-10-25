@@ -194,6 +194,48 @@ public class PictureTester
 	  beach.explore();
   }
   
+  public static void mirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  Pixel[][] pixels = snowman.getPixels2D();
+	  
+	  int pivot = 192;
+	  Pixel top = null;
+	  Pixel bot = null;
+	  
+	  //left arm mirror
+	  for(int row = 159; row <= 190; row++)
+	  {
+		  for(int col = 105; col <= 169; col++)
+		  {
+			  top = pixels[row][col];
+			  bot = pixels[pivot - row + pivot][col];
+			  bot.setColor(top.getColor());
+		  }
+	  }
+	  
+	//right arm mirror
+	  
+	  //for(int row = 172; row <= 195; row++)
+	 // {
+	//	  for(int col = 239; col <= 293; col++)
+	//	  {
+	//		  top = pixels[row][col];
+	//		  bot = pixels[pivot - row + pivot][col];
+	//		  bot.setColor(top.getColor());
+	//	  }
+	  //}
+	  
+	  snowman.explore();
+  }
+  
+  //left arm
+  //190, 169 Bottom right inclusive
+  //159, 105 Top left inclusive
+  
+  //right arm
+  //195, 293 Bottom right
+  //172, 239 top left
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -202,7 +244,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  mirrorDiagonal();
+	  mirrorArms();
+	  //mirrorDiagonal();
 	  //mirrorHorizontalBotToTop();
 	  //mirrorHorizontal();
 	  //mirrorVerticalRightToLeft();
