@@ -203,6 +203,15 @@ public class PictureTester
 	  Pixel top = null;
 	  Pixel bot = null;
 	  
+	  
+	  //left arm
+	  //190, 169 Bottom right inclusive
+	  //159, 105 Top left inclusive
+	  
+	  //right arm
+	  //195, 293 Bottom right
+	  //172, 239 top left
+	  
 	  //left arm mirror
 	  for(int row = 159; row <= 190; row++)
 	  {
@@ -215,27 +224,45 @@ public class PictureTester
 	  }
 	  
 	//right arm mirror
-	  
-	  //for(int row = 172; row <= 195; row++)
-	 // {
-	//	  for(int col = 239; col <= 293; col++)
-	//	  {
-	//		  top = pixels[row][col];
-	//		  bot = pixels[pivot - row + pivot][col];
-	//		  bot.setColor(top.getColor());
-	//	  }
-	  //}
+	  pivot = 195;
+	  for(int row = 172; row <= 195; row++)
+	  {
+		  for(int col = 239; col <= 293; col++)
+		  {
+			  top = pixels[row][col];
+			  bot = pixels[pivot - row + pivot][col];
+			  bot.setColor(top.getColor());
+		  }
+	  }
 	  
 	  snowman.explore();
   }
   
-  //left arm
-  //190, 169 Bottom right inclusive
-  //159, 105 Top left inclusive
-  
-  //right arm
-  //195, 293 Bottom right
-  //172, 239 top left
+  public static void mirrorGull()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  //234, 238
+	  //322, 344
+	  //360
+	  Pixel[][] pixels = gull.getPixels2D();
+	  Pixel left = null;
+	  Pixel right = null;
+	  
+	  int pivot = 360;
+	  for(int row = 234; row <= 322; row++)
+	  {
+		  for(int col = 238; col <= 344; col++)
+		  {
+			  left = pixels[row][col];
+			  right = pixels[row][pivot - col + pivot];
+			  right.setColor(left.getColor());
+		  }
+	  }
+	  
+	  
+	  gull.explore();
+  }
+
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -244,7 +271,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  mirrorArms();
+	  mirrorGull();
+	  //mirrorArms();
 	  //mirrorDiagonal();
 	  //mirrorHorizontalBotToTop();
 	  //mirrorHorizontal();
