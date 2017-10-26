@@ -262,7 +262,52 @@ public class PictureTester
 	  
 	  gull.explore();
   }
-
+  public static Picture copy(Picture toPic, Picture fromPic, int destRow, int destCol, int fromStartRow, int fromEndRow, int fromStartCol, int fromEndCol)
+  {
+	  Picture collage = toPic;
+	  Pixel fromPixel = null;
+	  Pixel toPixel = null;
+	  Pixel[][] toPixels = collage.getPixels2D();
+	  Pixel[][] fromPixels = fromPic.getPixels2D();
+	  for(int fromRow = fromStartRow, toRow = destRow; 
+			  (fromRow < fromEndRow && fromRow < fromPixels.length) && (toRow < toPixels.length); fromRow++, toRow++)
+	  {
+		  for(int fromCol = fromStartCol, toCol = destCol; 
+				  fromCol < fromEndCol && fromCol < fromPixels.length && toCol < toPixels.length; fromCol++, toCol++)
+		  {
+			  fromPixel = fromPixels[fromRow][fromCol];
+			  toPixel = toPixels[toRow][toCol];
+			  toPixel.setColor(fromPixel.getColor());
+		  }
+	  }
+	  return collage;
+  }
+  
+  public static void myCollage()
+  {
+	  Picture collage = new Picture("640x480.jpg");
+	  Picture flower1 = new Picture("flower1.jpg");
+	  Pixel[][] fl1Pixels = flower1.getPixels2D();
+	  int fl1NumRows = fl1Pixels.length;
+	  int fl1NumCols = fl1Pixels[0].length;
+	  collage = copy(collage, flower1, 10, 10, 0, fl1NumRows, 0, fl1NumCols);
+	  
+	  Picture flower2 = new Picture("flower2.jpg");
+	  Pixel[][] fl2Pixels = flower2.getPixels2D();
+	  int fl2NumRows = fl2Pixels.length;
+	  int fl2NumCols = fl2Pixels[0].length;
+	  collage = copy(collage, flower2, 30, 10, 0, fl2NumRows, 0, fl2NumCols);
+	  
+	  Picture arch = new Picture("arch.jpg");
+	  Pixel[][] archPixels = arch.getPixels2D();
+	  int archNumRows = archPixels.length;
+	  int archNumCols = archPixels[0].length;
+	  collage = copy(collage, arch, 50, 50, 0, archNumRows, 0, archNumCols);
+	  
+	  collage.mirrorVertical();
+	  
+	  collage.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -271,7 +316,9 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  mirrorGull();
+	  myCollage();
+	  //copy(new Picture ("640x480.jpg"), new Picture("flower1.jpg"), 50, 75, 25, 50, 30, 75);
+	  //mirrorGull();
 	  //mirrorArms();
 	  //mirrorDiagonal();
 	  //mirrorHorizontalBotToTop();
