@@ -17,11 +17,13 @@ public class main {
 		int choice = 0;
 		do
 		{
-			System.out.println("Choose an option:\n\t1: Open a New Window\n\t2: Click on an Existing Window\n\t0: Quit");
+			System.out.println("Choose an option:\n\t1: Open a New Window\n\t2: Click on an Existing Window\n\t3: See Window Stack\n\t0: Quit");
 		
 			choice = console.nextInt();
 			if (choice == 1)
 			{
+				System.out.println("Enter Window Name: ");
+				String newName = console.next();
 				System.out.println("Enter X Position of New Window: ");
 				double newX = console.nextDouble();
 				System.out.println("Enter Y Position of New Window: ");
@@ -31,7 +33,7 @@ public class main {
 				System.out.println("Enter Length of New Window: ");
 				double newLength = console.nextDouble();
 				
-				windows.add(new Rectangle(newWidth, newLength, newX, newY));//construct window object, push to list
+				windows.add(new Rectangle(newWidth, newLength, newX, newY, newName));//construct window object, push to list
 				
 				System.out.println("Done.");
 			}
@@ -64,11 +66,20 @@ public class main {
 					System.out.println("No Window Found");
 				}
 			}
+			else if (choice == 3)
+			{
+				System.out.print("\nTOP: ");
+				for(int i = windows.size() -1; i > 0; i--)
+				{
+					System.out.println(windows.get(i).toString());
+				}
+				System.out.println("BOTTOM: " + windows.get(0).toString());
+			}
 			else
 			{
 				System.out.println("Invalid");
 			}
-		}while(choice == 0);
+		}while(choice != 0);
 		System.out.println("Done");
 	}
 }
