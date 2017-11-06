@@ -12,19 +12,19 @@ public class main {
 		// TODO Auto-generated method stub
 		writeSquares(30);
 	}
-	public static void writeSquares(int n)
+	public static void writeSquares(int n)//Method with Singular parameter for user ease.
 	{
 		if (n <= 0)
 		{
 			System.out.println("Invalid");
 			return;
 		}
-		if(n % 2 == 0)
+		if(n % 2 == 0)//n is already even
 		{
 			writeSquares(n, n);
 			return;
 		}
-		else
+		else//n is odd, seed recursion with even
 		{
 			writeSquares(n - 1, n);
 			return;
@@ -32,15 +32,15 @@ public class main {
 	}
 	private static void writeSquares(int nf, int ni)
 	{
-		if (nf < 1)
+		if (nf < 1)//Switches from decrementing, to incrementing
 		{
 			writeSquares(1, ni);
 		}						
 		else if(nf % 2 == 0)
 		{
-			writeSquares(nf - 2, ni);
+			writeSquares(nf - 2, ni);//Moves down n
 			System.out.print(nf * nf);
-			if (nf != ni && nf + 1 != ni)
+			if (nf != ni && nf + 1 != ni)//Prints out commas, only if final even square is not being printed
 			{
 				System.out.print(", ");
 			}
@@ -53,14 +53,14 @@ public class main {
 		{
 			if(nf <= ni)
 			{
-				writeSquares(nf + 2, ni);
+				writeSquares(nf + 2, ni);//Moves up to next odd
 				if (ni != 1)
 				{
 					System.out.print(nf * nf + ", ");
 				}
 				else
 				{
-					System.out.print(1);
+					System.out.print(1);//No need for comma if only "1"
 				}
 			}
 			else
