@@ -1,6 +1,14 @@
-
-import java.lang.management.ManagementFactory;
-import java.util.*;
+/*
+ * Author: Connor Aksama
+ * Project Name: 9_3SelectionSort
+ * File Name: main.java
+ * Purpose: ALGORITHMS
+ * Pseudocode: Iterate through array to decreasing end mark, looking for largest value, send largest value to end mark
+ * Maintenance Log: 11/6 Function completed 11/8 Commented, Questions answered
+ * Questions:
+ * 1: This algorithm runs at the same speed as its "sister" algorithm
+ * 2: Complexity class -> n^2
+ */
 public class main {
 
 	public static void main(String[] args) {
