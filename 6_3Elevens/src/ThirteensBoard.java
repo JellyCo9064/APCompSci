@@ -53,13 +53,15 @@ public class ThirteensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		if (selectedCards.size() == 2) {
-			return containsPairSum13(selectedCards);
-		} else if (selectedCards.size() == 1) {
-			return containsK(selectedCards);
-		} else {
-			return false;
+		if(selectedCards.size() == 1)
+		{
+			return findK(selectedCards).size() > 0;
 		}
+		if (selectedCards.size() == 2)
+		{
+			return findPairSum13(selectedCards).size() > 0;
+		}
+		return false;
 	}
 
 	/**
@@ -73,7 +75,7 @@ public class ThirteensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		List<Integer> cIndexes = cardIndexes();
-		return containsPairSum13(cIndexes) || containsK(cIndexes);
+		return findPairSum13(cIndexes).size() > 0 || findK(cIndexes).size() > 0;
 	}
 
 	/**
@@ -84,17 +86,19 @@ public class ThirteensBoard extends Board {
 	 * @return true if the board entries in selectedCards
 	 *              contain an 11-pair; false otherwise.
 	 */
-	private boolean containsPairSum13(List<Integer> selectedCards) {
+	private List<Integer> findPairSum13(List<Integer> selectedCards) {
+		List<Integer> sum13 = new ArrayList<Integer>();
 		for (int sk1 = 0; sk1 < selectedCards.size(); sk1++) {
 			int k1 = selectedCards.get(sk1).intValue();
 			for (int sk2 = sk1 + 1; sk2 < selectedCards.size(); sk2++) {
 				int k2 = selectedCards.get(sk2).intValue();
 				if (cardAt(k1).pointValue() + cardAt(k2).pointValue() == 13) {
-					return true;
+					sum13.add(k1);
+					sum13.add(k2);
 				}
 			}
 		}
-		return false;
+		return sum13;
 	}
 
 	/**
@@ -105,14 +109,37 @@ public class ThirteensBoard extends Board {
 	 * @return true if the board entries in selectedCards
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
-	private boolean containsK(List<Integer> selectedCards) {
-		boolean foundKing = false;
+	private List<Integer> findK(List<Integer> selectedCards) {
+		List<Integer> kIndex = new ArrayList<Integer>();
 		for (Integer kObj : selectedCards) {
 			int k = kObj.intValue();
 			if (cardAt(k).rank().equals("king")) {
-				foundKing = true;
+				kIndex.add(k);
+				break;
 			}
 		}
-		return foundKing;
+		return kIndex;
+	}
+	public boolean playIfPossible()
+	{
+		return playKIfPossible() || playPairSum13IfPossible();
+	}
+	private boolean playKIfPossible()
+	{
+		if(findK(super.cardIndexes()).size() > 0)
+		{
+			super.replaceSelectedCards(findK(super.cardIndexes()));
+			return true;
+		}
+		return false;
+	}
+	private boolean playPairSum13IfPossible()
+	{
+		if(findPairSum13(super.cardIndexes()).size() > 0)
+		{
+			super.replaceSelectedCards(findPairSum13(super.cardIndexes()));
+			return true;
+		}
+		return false;
 	}
 }
