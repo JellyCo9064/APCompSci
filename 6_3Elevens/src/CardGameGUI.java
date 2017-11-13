@@ -377,7 +377,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 					}
 					// Do the replace.
 					board.replaceSelectedCards(selection);
-					if (board.isEmpty()) {
+					if (board.gameIsWon()) {
 						signalWin();
 					} else if (!board.anotherPlayIsPossible()) {
 						signalLoss();

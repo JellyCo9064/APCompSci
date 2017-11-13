@@ -75,7 +75,7 @@ public class ThirteensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		List<Integer> cIndexes = cardIndexes();
-		return findPairSum13(cIndexes).size() > 0 || findK(cIndexes).size() > 0;
+		return findPairSum13(cIndexes).size() >= 2 || findK(cIndexes).size() >= 1;
 	}
 
 	/**
@@ -95,6 +95,7 @@ public class ThirteensBoard extends Board {
 				if (cardAt(k1).pointValue() + cardAt(k2).pointValue() == 13) {
 					sum13.add(k1);
 					sum13.add(k2);
+					return sum13;
 				}
 			}
 		}
@@ -115,7 +116,7 @@ public class ThirteensBoard extends Board {
 			int k = kObj.intValue();
 			if (cardAt(k).rank().equals("king")) {
 				kIndex.add(k);
-				break;
+				return kIndex;
 			}
 		}
 		return kIndex;
@@ -126,20 +127,26 @@ public class ThirteensBoard extends Board {
 	}
 	private boolean playKIfPossible()
 	{
-		if(findK(super.cardIndexes()).size() > 0)
+		if(findK(cardIndexes()).size() >= 1)
 		{
 			super.replaceSelectedCards(findK(super.cardIndexes()));
 			return true;
 		}
-		return false;
+		else
+		{
+			return false;
+		}
 	}
 	private boolean playPairSum13IfPossible()
 	{
-		if(findPairSum13(super.cardIndexes()).size() > 0)
+		if(findPairSum13(cardIndexes()).size() >= 2)
 		{
 			super.replaceSelectedCards(findPairSum13(super.cardIndexes()));
 			return true;
 		}
-		return false;
+		else
+		{
+			return false;
+		}
 	}
 }
