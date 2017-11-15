@@ -18,10 +18,12 @@ public class MagpieRunner5
 		System.out.println (maggie.getGreeting());
 		Scanner in = new Scanner (System.in);
 		String statement = in.nextLine();
+		String response = "";
 		
-		while (!statement.equals("Bye"))
+		while (response != "Okay, bye")
 		{
-			System.out.println (maggie.getResponse(statement));
+			response = maggie.getResponse(statement);
+			System.out.println (response);
 			statement = in.nextLine();
 		}
 	}

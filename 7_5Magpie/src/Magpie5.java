@@ -35,19 +35,22 @@ public class Magpie5
 		String response = "";
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "You ain't sayin' nothin'";
 		}
-
+		else if (findKeyword(statement, "bye") >= 0)
+		{
+			response = "Okay, bye";
+		}
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "Why you gotta be so negateev bro?";
 		}
 		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0)
 		{
-			response = "Tell me more about your family.";
+			response = "Tell me mo' 'bout yo fam broseph";
 		}
 
 		// Responses which require transformations
@@ -113,7 +116,7 @@ public class Magpie5
 		}
 		int psn = findKeyword (statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
-		return "What would it mean to " + restOfStatement + "?";
+		return "Whatcha mean to " + restOfStatement + "?";
 	}
 
 	
