@@ -142,19 +142,19 @@ public class ArrayIntList {
     public int indexOfSubList(ArrayIntList L)
     {
     	int indexOfL = 0;
-    	for(int i = 0; i < this.size; i++)
+    	for(int i = 0; i < this.size; i++)//Iterate through main list
     	{
-    		if(this.get(i) == L.get(indexOfL))
+    		if(this.get(i) == L.get(indexOfL))//element matches passed list element
     		{
-    			indexOfL++;
-    			if(indexOfL == L.size)
+    			indexOfL++;//Iterate through passed list
+    			if(indexOfL == L.size)//Successfully iterated through entire passed list
     			{
     				return i - indexOfL + 1;
     			}
     		}
     		else
     		{
-    			indexOfL = 0;
+    			indexOfL = 0;//Element does not match, try matching entire passed list again
     		}
     	}
     	
