@@ -17,7 +17,7 @@ public class main {
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		for(int i = 0; i < 30; i++)
 		{
-			list.add(r.nextInt(20));
+			list.add(r.nextInt(8));
 		}
 		Iterator<Integer> print = list.iterator();
 		while(print.hasNext())
@@ -25,7 +25,7 @@ public class main {
 			System.out.print(print.next() + ", ");
 		}
 		System.out.println();
-		removeInRange(list, 3, 5, 14);
+		removeInRange(list, 0, 7, 10);
 		Iterator<Integer> print2 = list.iterator();
 		while(print2.hasNext())
 		{

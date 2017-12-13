@@ -28,12 +28,12 @@ public class main {
 	}
 	public static List<Integer> sortAndRemoveDuplicates(List<Integer> list)//take in list
 	{
-		SortedSet<Integer> sorted = new TreeSet<Integer>();//Auto sorts values
+		SortedSet<Integer> sorted = new TreeSet<Integer>(list);//Auto sorts values
 		
-		Iterator<Integer> itr = list.iterator();
-		while (itr.hasNext()){//Iterate through list, add to sorted set
-			sorted.add(itr.next());
-		}
+//		Iterator<Integer> itr = list.iterator();
+//		while (itr.hasNext()){//Iterate through list, add to sorted set
+//			sorted.add(itr.next());
+//		}
 
 		return Arrays.asList(sorted.toArray(new Integer[0]));//send back (set -> array -> list)
 		
