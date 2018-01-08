@@ -31,7 +31,7 @@ public class main {
 		{
 			int greatest = Integer.MIN_VALUE;
 			int gIndex = 0;
-			for(int j = 0; j <= i; j++)
+			for(int j = 0; j <= i; j++)//Find Greatest element
 			{
 				if (array[j] > greatest)
 				{
@@ -40,7 +40,7 @@ public class main {
 				}
 			}
 			int temp = array[i];
-			array[i] = greatest;
+			array[i] = greatest;//Swap
 			array[gIndex] = temp;
 		}
 		return array;
