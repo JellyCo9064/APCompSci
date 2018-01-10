@@ -16,7 +16,7 @@ public class main {
 		keyValues.put("Mee", 5);
 		keyValues.put("Foof", 3);
 		keyValues.put("Vivek", 3);
-		keyValues.put("WATSA", 3);
+		//keyValues.put("WATSA", 3);
 		
 		System.out.println("Rarest Key: " + rarest(keyValues));
 	}
