@@ -38,6 +38,10 @@ public class main {
 	}
 	public static int maxLength(Set<String> strings)
 	{
+		if(strings.size() == 0)
+		{
+			return 0;
+		}
 		int max = 0;
 		for(String s : strings)//Iterate through set
 		{
