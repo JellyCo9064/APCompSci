@@ -14,7 +14,12 @@ public class main {
 		Random r = new Random();
 		for(int i = 0; i < 30; i++)//Initialize List
 		{
-			list.add(r.nextInt(10));
+			int r1 = r.nextInt(10);
+			if (r1 == 2)
+			{
+				r1++;
+			}
+			list.add(r1);
 		}
 		for(Integer i : list)//Print out original values
 		{
