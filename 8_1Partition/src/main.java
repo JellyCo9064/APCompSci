@@ -32,7 +32,8 @@ public class main {
 	
 	public static List<Integer> partition(List<Integer> list, int e)
 	{
-		List<Integer> rearranged = new ArrayList<Integer>();
+		List<Integer> rearrangedL = new ArrayList<Integer>();
+		List<Integer> rearrangedR = new ArrayList<Integer>();
 
 		Iterator<Integer> itr = list.iterator();
 		while (itr.hasNext())//Iterate through values
@@ -40,16 +41,21 @@ public class main {
 			Integer i = itr.next();
 			if (i.intValue() < e)//Check value against partition
 			{
-				rearranged.add(0, i);//If less than partition, add to beginning of list
+				rearrangedL.add(0, i);//If less than partition, add to beginning of list
+			}
+			else if(i.intValue() == e)
+			{
+				rearrangedL.add(i);
 			}
 			else
 			{
-				rearranged.add(i);//If greater than partition, add to end of list
+				rearrangedR.add(i);//If greater than partition, add to end of list
 			}
 		}
 		
 		
-		return rearranged;
+		rearrangedL.addAll(rearrangedR);
+		return rearrangedL;
 	}
 }
 
