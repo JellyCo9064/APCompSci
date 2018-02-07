@@ -15,6 +15,8 @@ public class main {
 			writeSequence(i);
 			System.out.println();
 		}
+		//writeSequence(0);
+		
 	}
 	public static void writeSequence(int n)
 	{
@@ -24,20 +26,23 @@ public class main {
 		}
 		if(n == 1)
 		{
-			System.out.print(1 + " ");
+			System.out.print(1 + " ");//Base Case
 		}
 		else if (n != 0)
 		{
-			if (n % 2 == 1)
+			if (n % 2 == 1)//Odd
 			{
-				System.out.print(n / 2 + 1 + " ");
-				writeSequence(n - 2);
-				System.out.print(n / 2 + 1 + " ");
+
+				System.out.print(n / 2 + 1 + " ");//Prints descending
+				if(n - 2 != 0)
+					writeSequence(n - 2);//Only "half" of sequence calculated
+				System.out.print(n / 2 + 1 + " ");//Prints ascending
 			}
-			else
+			else//Even
 			{
 				System.out.print(n / 2 + " ");
-				writeSequence(n - 2);
+				if(n - 2 != 0)
+					writeSequence(n - 2);
 				System.out.print(n / 2 + " ");
 			}
 			
