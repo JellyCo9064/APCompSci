@@ -3,14 +3,14 @@
  * Project Name: A10_1StarString
  * File Name: main.java
  * Purpose: Recurz
- * Pseudocode: Use recursion, print out stars equal to one power less
+ * Pseudocode: Use recursion, print out stars equal to one power less twice
  * Maintenance Log: 12/15 Done
  */
 public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		starString(5);
+		starString(2);
 		
 	}
 	public static void starString(int n)
