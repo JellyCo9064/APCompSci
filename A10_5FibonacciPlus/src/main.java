@@ -10,26 +10,34 @@ import java.util.*;
 public class main {
 	public static void main(String[] args)
 	{
-		fibonacci(50);
+		for (int i = 1; i < 50; i++)
+		{
+			System.out.println(fibonacci(i));
+		}
+
 	}
-	public static void fibonacci(int n)//"Gatekeeper"
+	public static int fibonacci(int n)//"Gatekeeper"
 	{
 		if(n < 1)
 		{
 			throw new IllegalArgumentException("Value less than 1");
 		}
-		System.out.print("1");
 		if(n > 1)
 		{
-			fibonacci(n, 0, 0, 1);//Call Real Recursion
+			return fibonacci(n, 0, 0, 1);//Call Real Recursion
+		}
+		else
+		{
+			return 1;
 		}
 	}
-	public static void fibonacci(int n, int currentN, int prev1, int prev2)//Handles Recursion
+	public static int fibonacci(int n, int currentN, int prev1, int prev2)//Handles Recursion
 	{
-		System.out.print(", " + (prev1 + prev2));//Prints next fibonacci number
+		//System.out.print(", " + (prev1 + prev2));//Prints next fibonacci number
 		if(currentN < n - 2)//Acts similarly to condition in for loop
 		{
-			fibonacci(n, ++currentN, prev2, prev1 + prev2);//Recursion
+			return fibonacci(n, ++currentN, prev2, prev1 + prev2);//Recursion
 		}
+		return prev2 + prev1;//Return final number
 	}
 }
