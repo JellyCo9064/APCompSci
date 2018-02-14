@@ -15,14 +15,14 @@ public class main {
 	}
 	public static void starString(int n)
 	{
-		for(int i = 0; i < Math.pow(2, n - 1); i++)//First difference of exponential graph
+		if(n > 0)//2^n = 2^(n-1) * 2
 		{
-			System.out.print("*");	
+			starString(n - 1);
+			starString(n - 1);
 		}
-		if(n > 0)
+		else
 		{
-			starString(n - 1);//Recursion
+			System.out.print("*");//Base Case
 		}
-		//"base case"
 	}
 }
