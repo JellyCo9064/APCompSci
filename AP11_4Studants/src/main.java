@@ -3,8 +3,8 @@
  * Project Name: AP11_4Studants
  * File Name: main.java
  * Purpose: Comparators
- * Pseudocode:
- * Maintenance Log: 2/8 Switch case, comparators
+ * Pseudocode: Read in file line by line, construct student. Use comparators and reverse comparators to sort list.
+ * Maintenance Log: 2/8 Switch case, comparators 2/15 Done
  */
 import java.util.*;
 import java.io.*;
@@ -15,7 +15,7 @@ public class main {
 		Scanner console = new Scanner(System.in);
 		List<Studant> studentList = new ArrayList<Studant>();
 		Scanner file = null;
-		try
+		try//Get in file
 		{
 			file = new Scanner(new File("studantList.txt"));
 		}
@@ -25,9 +25,10 @@ public class main {
 		}
 		while (file.hasNextLine())
 		{
-			String inLine = file.nextLine();
-			Scanner lineScanner = new Scanner(inLine);
-			studentList.add(new Studant(lineScanner.next(), lineScanner.next(), lineScanner.nextInt(), lineScanner.nextDouble(), lineScanner.next()));
+			String inLine = file.nextLine();//Get in one student
+			Scanner lineScanner = new Scanner(inLine);//Input string into scanner
+			//Break up string, use as constructor variables, add to list
+			studentList.add(new Studant(lineScanner.next(), lineScanner.next(), lineScanner.next(), lineScanner.nextDouble(), lineScanner.next()));
 		}
 		while (true)
 		{
@@ -36,40 +37,43 @@ public class main {
 			switch(choice)
 			{
 			case 1:
-				Collections.sort(studentList, new COMPARE_FIRST_NAME());
+				Collections.sort(studentList, new COMPARE_FIRST_NAME());//First Ascending
 				break;
 			case 2:
-				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_FIRST_NAME()));
+				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_FIRST_NAME()));//First Descending
 				break;
 			case 3:
-				Collections.sort(studentList, new COMPARE_LAST_NAME());
+				Collections.sort(studentList, new COMPARE_LAST_NAME());//Last Ascending
 				break;
 			case 4:
-				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_LAST_NAME()));
+				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_LAST_NAME()));//Last Descending
 				break;
 			case 5:
-				Collections.sort(studentList, new COMPARE_ID_NUMBER());
+				Collections.sort(studentList, new COMPARE_ID_NUMBER());//ID Ascending
 				break;
 			case 6:
-				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_ID_NUMBER()));
+				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_ID_NUMBER()));//ID Descending
 				break;
 			case 7:
-				Collections.sort(studentList, new COMPARE_PERCENTAGE());
+				Collections.sort(studentList, new COMPARE_PERCENTAGE());//Percentage Ascending
 				break;
 			case 8:
-				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_PERCENTAGE()));
+				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_PERCENTAGE()));//Percentage Descending
 				break;
 			case 9:
-				Collections.sort(studentList, new COMPARE_LETTER_GRADE());
+				Collections.sort(studentList, new COMPARE_LETTER_GRADE());//Letter Ascending
 				break;
 			case 10:
-				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_LETTER_GRADE()));
+				Collections.sort(studentList, Collections.reverseOrder(new COMPARE_LETTER_GRADE()));//Letter Descending
 				break;
 			default:
 				System.out.println("Invalid choice");
 				break;
 			}
-			System.out.println(studentList.toString());
+			for(Studant s : studentList)//Print out list
+			{
+				System.out.println(s.getFirstName() + "\t" + s.getLastName() + "\t" + s.getIDNumber() + "\t" + s.getPercentage() + "\t" + s.getLetterGrade());
+			}
 		}
 	}
 
