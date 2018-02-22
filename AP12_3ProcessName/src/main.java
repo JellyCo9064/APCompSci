@@ -17,19 +17,21 @@ public class main {
 	public static void processName(Scanner console)
 	{
 		System.out.println("Enter name as one string: ");
-		String name = console.next();
-		
-		printReverse(name);
-	}
-	public static void printReverse(String s)
-	{
-		if (s.length() != 0)
+		List<String> names = new ArrayList<String>();
+		String name = console.nextLine();
+		Scanner reader = new Scanner(name);
+		while(reader.hasNext())
 		{
-			for(int i = s.length() - 1; i >= 0; i--)
+			names.add(reader.next());
+		}
+		for(int i = names.size() - 1; i >= 0; i--)
+		{
+			System.out.print(names.get(i));
+			if(i != 0)
 			{
-				System.out.print(s.charAt(i));
+				System.out.print(", ");
 			}
-			System.out.println();
 		}
 	}
+
 }
