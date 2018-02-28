@@ -8,6 +8,14 @@
  */
 public class PictureTester
 {
+	public static void testChromakey()
+	{
+		Picture mark = new Picture("blue-mark.jpg");
+		Picture moon = new Picture("moon-surface.jpg");
+		mark.chromakey(moon);
+		mark.explore();
+	}
+	
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
@@ -316,7 +324,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  myCollage();
+	  testChromakey();
+	  //myCollage();
 	  //copy(new Picture ("640x480.jpg"), new Picture("flower1.jpg"), 50, 75, 25, 50, 30, 75);
 	  //mirrorGull();
 	  //mirrorArms();
