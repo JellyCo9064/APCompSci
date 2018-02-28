@@ -316,6 +316,16 @@ public class PictureTester
 	  
 	  collage.explore();
   }
+  public static void testEncodeAndDecode()
+  {
+	  Picture thruDoor = new Picture("thruDoor.jpg");
+	  thruDoor.explore();
+	  Picture message = new Picture("message.jpg");
+	  thruDoor.encode(message);
+	  thruDoor.explore();
+	  Picture decoded = thruDoor.decode();
+	  decoded.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -324,7 +334,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  testChromakey();
+	  testEncodeAndDecode();
+	  //testChromakey();
 	  //myCollage();
 	  //copy(new Picture ("640x480.jpg"), new Picture("flower1.jpg"), 50, 75, 25, 50, 30, 75);
 	  //mirrorGull();
