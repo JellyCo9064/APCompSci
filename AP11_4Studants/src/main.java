@@ -78,3 +78,85 @@ public class main {
 	}
 
 }
+/*
+ * File Name: COMPARE_FIRST_NAME.java
+  import java.util.Comparator;
+
+public class COMPARE_FIRST_NAME implements Comparator<Studant>{
+	public int compare(Studant a, Studant b)
+	{
+		return a.getFirstName().compareToIgnoreCase(b.getFirstName());
+	}
+}
+
+ */
+/*
+ * File Name: COMPARE_ID_NUMBER.java
+ * import java.util.Comparator;
+
+public class COMPARE_ID_NUMBER implements Comparator<Studant>{
+	public int compare(Studant a, Studant b)
+	{
+		return a.getIDNumber().compareToIgnoreCase(b.getIDNumber());
+	}
+}
+
+ */
+/*
+ * File Name: COMPARE_LAST_NAME.java
+ * import java.util.Comparator;
+
+public class COMPARE_LAST_NAME implements Comparator<Studant>{
+	public int compare(Studant a, Studant b)
+	{
+		return a.getLastName().compareToIgnoreCase(b.getLastName());
+	}
+}
+
+ */
+/*
+ * File Name: COMPARE_LETTER_GRADE.java
+ * import java.util.Comparator;
+
+public class COMPARE_LETTER_GRADE implements Comparator<Studant>{
+	public int compare(Studant a, Studant b)
+	{
+		return a.getLetterGrade().compareTo(b.getLetterGrade());
+	}
+}
+
+ */
+/*
+ * File Name: COMPARE_PERCENT.java
+ * import java.util.Comparator;
+
+public class COMPARE_PERCENTAGE implements Comparator<Studant>{
+	public int compare(Studant a, Studant b)
+	{
+		return (int)(a.getPercentage() - b.getPercentage());
+	}
+}
+
+ */
+/*
+ * File Name: Studant.java
+public class Studant {
+	private String firstName;
+	private String lastName;
+	private String idNumber;
+	private double percentage;
+	private String letterGrade;
+	
+	public Studant(){firstName = ""; lastName = ""; idNumber = ""; percentage = 0; letterGrade = "F";};
+	public Studant(String fn, String ln, String id, double percent, String letter){firstName = fn; lastName = ln; idNumber = id; percentage = percent; letterGrade = letter;};
+	
+	public String getFirstName(){return firstName;};
+	public String getLastName(){return lastName;};
+	public String getIDNumber(){return idNumber;};
+	public double getPercentage(){return percentage;};
+	public String getLetterGrade(){return letterGrade;};
+	public String toString(){return firstName + " " + lastName + " " + idNumber + " " + percentage + " " + letterGrade;};
+}
+ 
+ */
+
