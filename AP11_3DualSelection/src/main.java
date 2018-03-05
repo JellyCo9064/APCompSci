@@ -50,6 +50,7 @@ public class main {
 			moo[moo.length - i - 1] = max;
 			moo[maxIndex] = temp;
 		}
+		System.out.println(moo.toString());
 		for(int i : moo)//Print values
 		{
 			System.out.print(i + ", ");
