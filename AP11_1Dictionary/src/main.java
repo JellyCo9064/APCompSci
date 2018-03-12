@@ -46,8 +46,19 @@ public class main {
 			System.out.println("Second word not found");
 		}
 		if(secondIndex >= 0 && firstIndex >= 0)//Print number of words (exclusive)
-		{
-			System.out.println("There are " + (Math.abs(secondIndex - firstIndex) - 1) + " between " + first + " and " + second);
+		{			
+			if (firstIndex == secondIndex)
+			{
+				System.out.println("There are 0 between " + first + " and " + second);
+			}
+			else if(Math.abs(firstIndex - secondIndex) == 1)
+			{
+				System.out.println("There is 1 between " + first + " and " + second);
+			}
+			else
+			{
+				System.out.println("There are " + (Math.abs(secondIndex - firstIndex) - 1) + " between " + first + " and " + second);
+			}
 		}
 		console.close();
 	}
