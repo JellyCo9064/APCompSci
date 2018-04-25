@@ -16,6 +16,9 @@ public class main {
 		System.out.println(isReverse("Moo", "ooM"));
 		System.out.println(isReverse("oooooM", "Moooo"));
 		System.out.println(isReverse("vivEk", "KeVIQ"));
+		System.out.println(isReverse("", "Vivek"));
+		System.out.println(isReverse("", ""));
+		System.out.println(isReverse("racecar", "rAcECaR"));
 	}
 	
 	public static boolean isReverse(String one, String two)
